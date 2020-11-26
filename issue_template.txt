@@ -1,0 +1,44 @@
+Value statement
+
+As a student
+I need a list of learning cards
+so that I can improve my knowledge about programming
+Description (Text, Scribble, Wireframe, Design)
+
+question-answer-list
+Acceptance criteria
+
+    Question and answer are both always visible
+
+Tasks
+
+Create feature branch
+Create QuizCard component in Storybook
+Write component tests
+Add components to app (feature implementation with state)
+Add missing styles
+
+    Write integration tests w/ Cypress
+
+Complexity
+
+low
+
+
+
+---------------------------------------------------------------------------------
+Value statement - a requirement, not a solution
+
+As a (role) I need (an action) so that (a benefit)
+Description (Text, Scribble, Wireframe, Design)
+Acceptance criteria
+
+    (functional descriptions)
+
+Tasks
+
+    (todos for the team)
+
+Size
+
+(small, medium, large)
