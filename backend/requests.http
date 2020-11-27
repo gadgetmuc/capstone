@@ -1,27 +1,7 @@
-@baseUrl = http://shoppinglist-app.local/
+@baseUrl = http://shoppinglist-app.local
 
 ###
-GET {{baseUrl}}/game
-Authorization: Bearer 5fbb89973681e5.67872682
-
-
-###
-GET {{baseUrl}}/user
-Authorization: Bearer 5fbb89973681e5.67872682
-
-
-
-###
-POST {{baseUrl}}/game
-Authorization: Bearer 5fbb89973681e5.67872682
-
-{
-    "round": 10
-}
-
-
-###
-POST {{baseUrl}}/user_data
+POST {{baseUrl}}/user/data
 
 {
     "username": "Monsieur Bingo",
@@ -32,5 +12,9 @@ POST {{baseUrl}}/user_data
 
 ###
 
-GET {{baseUrl}}/user_data
+GET {{baseUrl}}/user/data
 
+
+###
+
+GET {{baseUrl}}/user/articles
