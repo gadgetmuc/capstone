@@ -18,3 +18,8 @@ GET {{baseUrl}}/user/data
 ###
 
 GET {{baseUrl}}/user/articles
+
+
+###
+
+GET {{baseUrl}}/user/shoppinglists

@@ -10,7 +10,6 @@ use App\Repository\ArticlesRepository;
 use App\Entity\Articles;
 use Symfony\Component\Serializer\SerializerInterface;
 
-
 class ArticlesController extends AbstractController
 {
     /**
@@ -20,12 +19,12 @@ class ArticlesController extends AbstractController
         ArticlesRepository $repository,
         Request $request,
         SerializerInterface $serializer
-    ): Response
+    ): JsonResponse
     {
-        $articles = $repository->findAll();
+        $articles = $repository->find(2);
         
         return new JsonResponse(
-            \json_encode($articles),
+            $serializer->serialize($articles, "json"),
             JsonResponse::HTTP_OK,
             [],
             true
