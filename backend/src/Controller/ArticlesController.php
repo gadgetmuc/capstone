@@ -21,7 +21,7 @@ class ArticlesController extends AbstractController
         SerializerInterface $serializer
     ): JsonResponse
     {
-        $articles = $repository->find(2);
+        $articles = $repository->findAll();
         
         return new JsonResponse(
             $serializer->serialize($articles, "json"),

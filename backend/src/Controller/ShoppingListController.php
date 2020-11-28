@@ -1,13 +1,5 @@
 <?php
 
-//
-//
-// Whoever will mess around with this controller any time soon, be aware:
-// The namings of Controller, Repository and variables are quite messy and need to be refactored!
-//
-//
-
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ShoppingListsRepository;
 use App\Entity\ShoppingLists;
 use Symfony\Component\Serializer\SerializerInterface;
+
+//
+//
+// Whoever will mess around with this controller any time soon, be aware:
+// The namings of Controller, Repository and variables are quite messy and need to be refactored!
+//
+//
 
 class ShoppingListController extends AbstractController
 {

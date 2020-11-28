@@ -37,6 +37,16 @@ class ShoppingLists
      */
     private $userid;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $articleid;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $amount;
+
     public function getShoppinglistId(): ?int
     {
         return $this->shoppinglistid;
@@ -86,6 +96,30 @@ class ShoppingLists
     public function setUserid(int $userid): self
     {
         $this->userid = $userid;
+
+        return $this;
+    }
+
+    public function getArticleid(): ?int
+    {
+        return $this->articleid;
+    }
+
+    public function setArticleid(int $articleid): self
+    {
+        $this->articleid = $articleid;
+
+        return $this;
+    }
+
+    public function getAmount(): ?int
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(int $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }
