@@ -10,6 +10,11 @@ export default function Body ({children}) {
 
 const BodyBackground = styled.body`
     background: #002;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100vw;
     height: 100vh;
     z-index: 0;

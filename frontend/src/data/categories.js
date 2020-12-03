@@ -2,7 +2,7 @@ const categories = [
     'vegetables',
     'fruit',
     'milk products',
-    'cooking / baking',
+    'cooking & baking',
     'breakfast',
     'bread',
     'cold cuts',
@@ -10,7 +10,7 @@ const categories = [
     'snacks',
     'instant meal',
     'frozen food',
-    'body care / cosmetics',
+    'body care & cosmetics',
     'baby',
     'house cleaning',
     'non-food'

@@ -8,7 +8,13 @@ export default function Header({children}) {
 }
 
 const HeaderStyled = styled.div`
-    font-size: 2rem;
+    background-color: red;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 5%;
+
+    font-size: 7vw;
     text-align: center;
     color: #eee;
     font-family: Monaco, sans-serif;
