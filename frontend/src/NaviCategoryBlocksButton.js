@@ -11,7 +11,7 @@ const NaviCategoryBlocksDiv = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    text-align: center;
+    text-align: space-evenly;
     width: 25vw;
     height: 18vw;
     font-family: Monaco, sans-serif;

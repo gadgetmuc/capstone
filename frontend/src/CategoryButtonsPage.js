@@ -29,11 +29,11 @@ export default function CategoryButtons ({ children }) {
 }
 
 const CategoryButtonArea = styled.div`
-  margin-top: 20%;
   display: grid;
   color: white;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-evenly;
   gap: 20px;
   // margin: 10px;
   background-color: rgba(0,0,0,0);
