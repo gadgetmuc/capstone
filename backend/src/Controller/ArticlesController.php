@@ -3,19 +3,32 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticlesRepository;
+use App\Entity\Articles;
+use App\Serializer\MyArticlesSerializer;
+use App\Controller\ArcticlesController;
 
 class ArticlesController extends AbstractController
 {
     /**
-     * @Route("/articles", name="articles")
+     * @Route("/articles", methods={"GET"})
      */
-    public function index(): Response
+    public function index(
+        ArticlesRepository $repository,
+        Request $request,
+        MyArticlesSerializer $serializer
+    ): JsonResponse
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ArticlesController.php',
-        ]);
+        $articles = $repository->findAll();
+     
+        return new JsonResponse(
+            $serializer->serialize($articles),
+            JsonResponse::HTTP_OK,
+            [],
+            true
+        );
     }
 }

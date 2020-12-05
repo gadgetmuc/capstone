@@ -8,7 +8,7 @@ export default function Body ({children}) {
     )
 }
 
-const BodyBackground = styled.body`
+const BodyBackground = styled.section`
     background: #002;
     position: relative;
     top: 0;

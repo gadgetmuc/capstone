@@ -3,19 +3,53 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\UserDataRepository;
+use App\Entity\UserData;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class UserDataController extends AbstractController
 {
     /**
-     * @Route("/user/data", name="user_data")
+     * @Route("/user/data", methods={"GET"})
      */
-    public function index(): Response
+    public function index(
+        UserDataRepository $repository,
+        Request $request, 
+        SerializerInterface $serializer
+    ): JsonResponse
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/UserDataController.php',
-        ]);
+       
+        $user = $repository->findAll();
+
+        return new JsonResponse(
+            $serializer->serialize($user, "json"),
+            JsonResponse::HTTP_OK,
+            [],
+            true
+
+        );
+    }
+
+    /**
+     * @Route("/user/data", methods={"POST"})
+     */
+    public function create(
+        UserDataRepository $repository,
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $user = $serializer->deserialize($request->getContent(), User::class, 'json');
+
+        $repository->save($user);
+
+        return new JsonResponse(
+            $serializer->serialize($user, 'json'),
+            JsonResponse::HTTP_OK,
+            [],
+            true
+        );
     }
 }

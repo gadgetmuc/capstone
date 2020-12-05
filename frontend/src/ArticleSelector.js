@@ -1,16 +1,26 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import styled from 'styled-components/macro';
 
 
 export default function ArticleSelector ({ article }) {
     return (
         <div>            
-            <ArticleSelector>
-                <span>{article.description}</span>
-                <span>Anzahl</span>
+            <ArticleSelectorFlex>
+                <span className="articledescription">{article.description}</span>
+                <span className="amount">Anzahl</span>
                 <button onClick={() => {alert("-")}}>-</button>
                 <button onClick={() => {alert("+")}}>+</button>
-            </ArticleSelector>
+            </ArticleSelectorFlex>
         </div>
     )
 }
+
+
+const ArticleSelectorFlex = styled.div`
+    display: flex;
+    justify-content: center;
+    color: red;
+    }
+
+
+`

@@ -12,12 +12,19 @@ function App() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch('http://shoppinglist-app.local/user/articles')
+    fetch('http://shoppinglist-app.local/articles')
     .then(response => response.json())
     .then((data) => setArticles(data))
   }, []); 
 
+
   const [amounts, setAmounts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://shoppinglist-app.local/shopping/lists')
+    .then(response => response.json())
+    .then((data) => setAmounts(data))
+  }, []);
 
 
 
@@ -45,7 +52,7 @@ const Overlay = styled.div`
   border-radius: 13px;
   // visibility: hidden;
   top: 3%;
-  color: deeppink;
+  /* color: ivory; */
   left: 3%;
   right: 3%;
   bottom: 3%;
