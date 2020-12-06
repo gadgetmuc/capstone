@@ -9,7 +9,6 @@ POST {{baseUrl}}/user/data
     "password": "BINGO!"
 }
 
-
 ###
 
 GET {{baseUrl}}/user/data
@@ -22,3 +21,16 @@ GET {{baseUrl}}/articles
 ###
 
 GET {{baseUrl}}/shopping/lists
+
+###
+
+POST {{baseUrl}}/shopping/lists
+
+{
+    "article_id_id": 1,
+    "user_id_id": 9,
+    "listname": "Wochenendeinkauf",
+    "shoppinglistid": 1,
+    "amount": 42
+}
+

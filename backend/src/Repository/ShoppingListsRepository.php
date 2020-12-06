@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\ShoppingLists;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @method ShoppingLists|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,32 +20,26 @@ class ShoppingListsRepository extends ServiceEntityRepository
         parent::__construct($registry, ShoppingLists::class);
     }
 
-    // /**
-    //  * @return ShoppingLists[] Returns an array of ShoppingLists objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    //try and error:
+    public function findOneByIdJoinedToArticles(int $articleId): ?Article
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->_em->createQuery(
+            'SELECT sl, a
+            FROM App\Entity\ShoppingLists sl
+            INNER JOIN sl.article_id_id
+            WHERE sl.id = :id'
+        )->setParameter('id', $articleId);
+        
+        return $query->getOneOrNullResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?ShoppingLists
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+
+
+    public function save(ShoppingLists $shoppinglist): ShoppingLists {
+        $this->_em->persist($shoppinglist);
+        $this->_em->flush();
+
+        return $shoppinglist;
     }
-    */
+
 }

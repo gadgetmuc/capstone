@@ -14,7 +14,7 @@ class MyArticlesSerializer {
         
        $this->articleAsArray[] = [
             'id' => $item->getId(),
-            'articledesription' => $item->getArticledescription(),
+            'articledescription' => $item->getArticledescription(),
             'price' => $item->getPrice(),
             'storageplace' => $item->getStorageplace(),
             'articlecategory' => $item->getArticlecategory(),

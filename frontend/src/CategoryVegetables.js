@@ -1,22 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/macro';
+import React from 'react';
+import ArticleSelectorFlex from './ArticleSelector';
 
-export default function CategoryVegetables ({articles}) {
-
+export default function CategoryVegetables ({articles, amounts, shoppingListIdState}) {
+    
+    
     const vegetables = articles.filter((article) => article.articlecategory === "0");
 
-    return (
-        <div>
-            {vegetables.map(vegetable => <ArticleSelector key={vegetable.id}>{vegetable.articledescription}</ArticleSelector>)}
-        </div>
-    )
+    const itemsInShoppingList = amounts.filter((item) => item.shoppinglistid === shoppingListIdState);
+
+    console.log(itemsInShoppingList);
+
+    const vegetablesAmountsArray = [];
+    // .map((vegetable) => {
+    //     if (amounts.shoppinglistid === {shoppingListId}) {
+    //     } 
+    // });
+    
+
+        return (
+            <div>
+                {vegetables.map((vegetable) =>
+                    <ArticleSelectorFlex 
+                        key={vegetable.id}
+                        description={vegetable.articledescription}
+                        amount = {amounts.amount}>
+                </ArticleSelectorFlex>)}
+            </div>
+        )
+
 }
 
-const ArticleSelector = styled.div`
-    height: 10vw;
-    width: 70hw;
-    /* color: #111; */
-    margin-bottom: 3px;
-    border-radius: 5px;
-    background-image: linear-gradient(ivory, papayawhip);
-`

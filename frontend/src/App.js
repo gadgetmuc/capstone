@@ -9,6 +9,8 @@ import CategoryVegetables from './CategoryVegetables';
 
 function App() {
 
+  const [shoppingListIdState, setShoppingListIdState] = useState(1); // hardcoded for now
+
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -28,13 +30,22 @@ function App() {
 
 
 
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    fetch('http://shoppinglist-app.local/user/data')
+    .then(response => response.json())
+    .then((data) => setUser(data))
+  }, []);
+
+
   return (
     <Body>
       <Header>Einkaufslisten-App</Header>
         <CategoryButtonsPage />
         <Overlay>
           <p>Hier kommt das overlay hin. Blablabla</p>
-          <CategoryVegetables articles={articles}/>
+          <CategoryVegetables articles={articles} amounts={amounts} shoppingListIdState={shoppingListIdState}/>
         </Overlay>
 
       <NavigationButtonArea />
@@ -52,7 +63,7 @@ const Overlay = styled.div`
   border-radius: 13px;
   // visibility: hidden;
   top: 3%;
-  /* color: ivory; */
+  color: ivory;
   left: 3%;
   right: 3%;
   bottom: 3%;
