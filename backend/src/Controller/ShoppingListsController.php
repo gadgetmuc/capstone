@@ -34,14 +34,23 @@ class ShoppingListsController extends AbstractController
         );
     }
 
-    public function show(int $id): Response {
+    //try and error
+    public function show(int $id): JsorResponse {
         $shoppinglistItems = $this->getDoctrine()
             ->getRepository(Shoppinglist::class)
             ->findOneByIdJoinedToArticles($id);
 
         $articlesInThisList = $shoppinglistItems->getArticles();
 
+        return new JsonResponse(
+            $serializer->serialize($shoppinglistItems, "json"),
+            JsonResponse::HTTP_OK,
+            [],
+            true
+        );        
+
     }
+    //
 }
 
 

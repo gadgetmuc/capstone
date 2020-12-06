@@ -21,18 +21,18 @@ class ShoppingListsRepository extends ServiceEntityRepository
     }
 
     //try and error:
-    public function findOneByIdJoinedToArticles(int $articleId): ?Article
-    {
-        $this->_em->createQuery(
-            'SELECT sl, a
-            FROM App\Entity\ShoppingLists sl
-            INNER JOIN sl.article_id_id
-            WHERE sl.id = :id'
-        )->setParameter('id', $articleId);
+    // public function findOneByIdJoinedToArticles(int $articleId): ?Article
+    // {
+    //     $this->_em->createQuery(
+    //         'SELECT sl, a
+    //         FROM App\Entity\ShoppingLists sl
+    //         INNER JOIN sl.article_id_id
+    //         WHERE a.id = :id'
+    //     )->setParameter('id', $articleId);
         
-        return $query->getOneOrNullResult();
-    }
-
+    //     return $query->getOneOrNullResult();
+    // }
+    //
 
 
     public function save(ShoppingLists $shoppinglist): ShoppingLists {
