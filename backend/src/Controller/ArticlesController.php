@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticlesRepository;
 use App\Entity\Articles;
 use App\Serializer\MyArticlesSerializer;
-use App\Controller\ArcticlesController;
+use App\Controller\ArticlesController;
 
 class ArticlesController extends AbstractController
 {

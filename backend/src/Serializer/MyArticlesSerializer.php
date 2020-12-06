@@ -22,7 +22,7 @@ class MyArticlesSerializer {
         return($this);
     }
 
-    public function serialize($articles){
+    public function serialize($articles) {
         if (is_array($articles)) {
             foreach($articles as $article) {
                 $this->setArray($article);

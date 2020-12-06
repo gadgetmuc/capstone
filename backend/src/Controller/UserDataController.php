@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserDataRepository;
 use App\Entity\UserData;
-use Symfony\Component\Serializer\SerializerInterface;
+use App\Serializer\MyUserDataSerializer;
+use App\Controller\UserDataController;
+
 
 class UserDataController extends AbstractController
 {
@@ -18,7 +20,7 @@ class UserDataController extends AbstractController
     public function index(
         UserDataRepository $repository,
         Request $request, 
-        SerializerInterface $serializer
+        MyUserDataSerializer $serializer
     ): JsonResponse
     {
        
