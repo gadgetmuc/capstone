@@ -13,7 +13,7 @@ export default function ArticleSelector ({description, amount}) {
                     {description}
                 </ArticleSelectorDescription>
                 <button onClick={() => {alert(minusButtonAlert)}}>-</button>
-                <ArticleSelectorAmount>{amount}</ArticleSelectorAmount>
+                <ArticleSelectorAmount>1{amount}</ArticleSelectorAmount>
                 <button onClick={() => {alert(plusButtonAlert)}}>+</button>
             </ArticleSelectorFlex>
         </div>

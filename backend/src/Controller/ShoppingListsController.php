@@ -16,7 +16,7 @@ use App\Controller\ShoppingListsController;
 class ShoppingListsController extends AbstractController
 {
     /**
-     * @Route("/shopping/lists", methods={"GET"})
+     * @Route("/shopping/lists", methods={"GET"}) // name="whatever"
      */
     public function index(
         ShoppingListsRepository $repository,
@@ -24,7 +24,10 @@ class ShoppingListsController extends AbstractController
         MyShoppingListsSerializer $serializer
     ): JsonResponse {
         
-        $shoppinglists = $repository->findAll();
+        $shoppinglists = $repository->findBy(array(
+            'shoppinglistid' => 2
+        ));
+
 
         return new JsonResponse(
             $serializer->serialize($shoppinglists, "json"),
@@ -34,22 +37,24 @@ class ShoppingListsController extends AbstractController
         );
     }
 
+
+
     //try and error
-    public function show(int $id): JsorResponse {
-        $shoppinglistItems = $this->getDoctrine()
-            ->getRepository(Shoppinglist::class)
-            ->findOneByIdJoinedToArticles($id);
+    // public function show(int $id): JsorResponse {
+    //     $shoppinglistItems = $this->getDoctrine()
+    //         ->getRepository(Shoppinglist::class)
+    //         ->findOneByIdJoinedToArticles($id);
 
-        $articlesInThisList = $shoppinglistItems->getArticles();
+    //     $articlesInThisList = $shoppinglistItems->getArticles();
 
-        return new JsonResponse(
-            $serializer->serialize($shoppinglistItems, "json"),
-            JsonResponse::HTTP_OK,
-            [],
-            true
-        );        
+    //     return new JsonResponse(
+    //         $serializer->serialize($shoppinglistItems, "json"),
+    //         JsonResponse::HTTP_OK,
+    //         [],
+    //         true
+    //     );        
 
-    }
+    // }
     //
 }
 
