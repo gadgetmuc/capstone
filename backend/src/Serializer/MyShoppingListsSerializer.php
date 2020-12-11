@@ -11,31 +11,26 @@ use App\Entity\UserData;
 
 class MyShoppingListsSerializer {
 
-    private $itemsAsArray = [];
-    private function setArray($item): object {
-
-        
+    private function shoppingListItemsAsArray($item): object {    
 
         $this->detailsAsArray[] = [
-            'id' => $item->getIdGeneratedByTable(),
+            'id' => $item->getUniqueId(),
             'article_id_id' => $item->getArticleId(),
             'user_id_id' => $item->getUserId(),
             'listname' => $item->getListname(),
             'shoppinglistid' => $item->getShoppinglistid(),
             'amount' => $item->getAmount()
-        ];       
-        
+        ];
         return($this);
     }
 
-
-    public function serialize($details){
+    public function serialize($details) {
         if (is_array($details)) {
             foreach($details as $detail) {
-                $this->setArray($detail);
+                $this->shoppingListItemsAsArray($detail);
             }
         } else {
-            $this->setArray($details);
+            $this->shoppingListItemsAsArray($details);
         }
         return \json_encode($this->detailsAsArray);
     }

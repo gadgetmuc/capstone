@@ -7,16 +7,21 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ShoppingListsRepository;
+use App\Repository\ArticlesRepository;
+use App\Repository\UserDataRepository;
 use App\Entity\ShoppingLists;
 use App\Entity\UserData;
 use App\Entity\Articles;
-use App\Serializer\MyShoppingListsSerializer;
 use App\Controller\ShoppingListsController;
+use App\Controller\ArticlesController;
+use App\Controller\UserDataController;
+use App\Serializer\MyShoppingListsSerializer;
+use App\Serializer\MyArticlesSerializer;
 
 class ShoppingListsController extends AbstractController
 {
     /**
-     * @Route("/shopping/lists", methods={"GET"}) // name="whatever"
+     * @Route("/shopping/lists/", methods={"GET"})
      */
     public function index(
         ShoppingListsRepository $repository,
@@ -24,13 +29,32 @@ class ShoppingListsController extends AbstractController
         MyShoppingListsSerializer $serializer
     ): JsonResponse {
         
-        $shoppinglists = $repository->findBy(array(
-            'shoppinglistid' => 2
-        ));
-
-
+        $shoppinglists = $repository->findBy(['article_id' => 1]);
+        
         return new JsonResponse(
             $serializer->serialize($shoppinglists, "json"),
+            JsonResponse::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+    /**
+     * @Route("/articles/articleid", methods={"GET"})
+     */
+
+    public function getArticleid(
+        Request $request,
+        MyArticlesSerializer $serializer,
+        ShoppingListsRepository $articlesRepository
+    ): JsonResponse {
+
+        $fromArticleslist = $articlesRepository->findBy(array(
+            'article_id' => 2
+        ));
+
+        return new JsonResponse(
+            $serializer->serialize($fromArticleslist, "json"),
             JsonResponse::HTTP_OK,
             [],
             true

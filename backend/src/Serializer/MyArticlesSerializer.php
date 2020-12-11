@@ -9,11 +9,10 @@ use App\Entity\Articles;
 
 class MyArticlesSerializer {
 
-    private $itemsAsArray = [];
-    private function setArray($item): object {
+    private function articleAsArray($item): object {
         
        $this->articleAsArray[] = [
-            'id' => $item->getId(),
+            'id' => $item->getGeneratedArticleId(),
             'articledescription' => $item->getArticledescription(),
             'price' => $item->getPrice(),
             'storageplace' => $item->getStorageplace(),
@@ -25,10 +24,10 @@ class MyArticlesSerializer {
     public function serialize($articles) {
         if (is_array($articles)) {
             foreach($articles as $article) {
-                $this->setArray($article);
+                $this->articleAsArray($article);
             }
         } else {
-            $this->setArray($articles);
+            $this->articleAsArray($articles);
         }
         return \json_encode($this->articleAsArray);
     }

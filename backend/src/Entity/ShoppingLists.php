@@ -44,7 +44,7 @@ class ShoppingLists
      */
     private $user_id;
 
-    public function getIdGeneratedByTable(): ?int
+    public function getUniqueId(): ?int
     {
         return $this->id;
     }
@@ -85,7 +85,7 @@ class ShoppingLists
         return $this;
     }
 
-    public function getArticleId(): ?articles
+    public function getGeneratedArticleId(): ?articles
     {
         return $this->article_id;
     }

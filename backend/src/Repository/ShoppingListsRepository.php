@@ -20,6 +20,24 @@ class ShoppingListsRepository extends ServiceEntityRepository
         parent::__construct($registry, ShoppingLists::class);
     }
 
+    // another try and error:
+    public function findAllArticleIdsWithinTheQuerriedShoppinglist(int $sl_id): array {
+        
+        $conn = $this->_em->getConnection();
+
+        $sql = '
+            SELECT article_id_id
+            from shopping_lists
+            where shoppinglistid = 1;
+        ';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['sl_id' => 1]);
+
+        return $stmt->fetchAllAssociative();
+
+    }
+
     //try and error:
     // public function findOneByIdJoinedToArticles(int $articleId): ?Article
     // {

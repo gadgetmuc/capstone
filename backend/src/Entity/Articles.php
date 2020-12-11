@@ -49,7 +49,7 @@ class Articles
         $this->articleid = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getGeneratedArticleId(): ?int
     {
         return $this->id;
     }
@@ -105,7 +105,7 @@ class Articles
     /**
      * @return Collection|ShoppingLists[]
      */
-    public function getArticleid(): Collection
+    public function getArticleI(): Collection
     {
         return $this->articleid;
     }

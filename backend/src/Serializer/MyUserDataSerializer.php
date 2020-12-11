@@ -9,7 +9,6 @@ use App\Entity\UserData;
 
 class MyUserDataSerializer {
 
-    private $userAsArray = [];
     private function setArray($pieceOfUserData): object {
 
         $this->userDataAsArray[] = [

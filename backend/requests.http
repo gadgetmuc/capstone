@@ -17,10 +17,13 @@ GET {{baseUrl}}/user/data
 
 GET {{baseUrl}}/articles
 
-
 ###
 
 GET {{baseUrl}}/shopping/lists
+
+###
+
+GET {{baseUrl}}/articles/articleid
 
 ###
 
