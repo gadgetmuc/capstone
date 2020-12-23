@@ -1,32 +1,23 @@
 import React from 'react';
 import ArticleSelectorFlex from './ArticleSelector';
 
-export default function CategoryVegetables ({articles, amounts, shoppingListIdState}) {
+
+export default function CategoryVegetables ({articles, shoppingListIdState, amounts, category}) {
     
+    const vegetables = articles.filter((article) => article.articlecategory === "0"); // this hardcoded and may need to be changed in a future iteration
+
+    const randomAmount = 0; // Math.floor(Math.random() * 4);
     
-    const vegetables = articles.filter((article) => article.articlecategory === "0");
-
-    const itemsInShoppingList = amounts.filter((item) => item.shoppinglistid === shoppingListIdState);
-
-    console.log(itemsInShoppingList);
-
-    const vegetablesAmountsArray = [];
-    // .map((vegetable) => {
-    //     if (amounts.shoppinglistid === {shoppingListId}) {
-    //     } 
-    // });
-    
-
-        return (
-            <div>
-                {vegetables.map((vegetable) =>
-                    <ArticleSelectorFlex 
-                        key={vegetable.id}
-                        description={vegetable.articledescription}
-                        amount = {amounts.amount}>
-                </ArticleSelectorFlex>)}
-            </div>
-        )
+    return (
+        <div>
+            {vegetables.map((item) =>
+                <ArticleSelectorFlex 
+                    key={item.id}
+                    description={item.articledescription}
+                    amount={randomAmount}>
+            </ArticleSelectorFlex>)}
+        </div>
+    )
 
 }
 

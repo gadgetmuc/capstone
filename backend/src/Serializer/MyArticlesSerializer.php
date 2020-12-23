@@ -5,15 +5,16 @@ namespace App\Serializer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Articles;
+use App\Controller\ArticlesController;
 
 
 class MyArticlesSerializer {
 
-    private function articleAsArray($item): object {
+    private function pushArticlesIntoArray($item): object {
         
        $this->articleAsArray[] = [
             'id' => $item->getGeneratedArticleId(),
-            'articledescription' => $item->getArticledescription(),
+            'articledescription' => $item->getArticleDescription(),
             'price' => $item->getPrice(),
             'storageplace' => $item->getStorageplace(),
             'articlecategory' => $item->getArticlecategory(),
@@ -24,10 +25,10 @@ class MyArticlesSerializer {
     public function serialize($articles) {
         if (is_array($articles)) {
             foreach($articles as $article) {
-                $this->articleAsArray($article);
+                $this->pushArticlesIntoArray($article);
             }
         } else {
-            $this->articleAsArray($articles);
+            $this->pushArticlesIntoArray($articles);
         }
         return \json_encode($this->articleAsArray);
     }

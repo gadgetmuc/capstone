@@ -1,0 +1,54 @@
+Database changed
+mysql> select * from user_data;
++----+--------------------+--------------------------+--------------------+
+| id | username           | email                    | password           |
++----+--------------------+--------------------------+--------------------+
+|  9 | Der Gadget         | misc@der-gadget.de       | god                |
+| 10 | Chris Vosberg      | trashbin@der-gadget.de   | sex                |
+| 11 | Emmanuel Goldstein | cerial@killer.com        | korinthians1       |
+| 12 | Charles Babbage    | the_plague@ellingson.com | kermit             |
+| 13 | Senor Dingdong     | ding@dong.com            | dadadiididadididaa |
++----+--------------------+--------------------------+--------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from shopping_lists;
++----+---------------+------------+------------------+----------------+--------+
+| id | article_id_id | user_id_id | listname         | shoppinglistid | amount |
++----+---------------+------------+------------------+----------------+--------+
+|  1 |             2 |          9 | Wochenendeinkauf |              1 |    100 |
+|  2 |             4 |          9 | Wochenendeinkauf |              1 |    200 |
+|  3 |            13 |          9 | Wochenendeinkauf |              1 |    300 |
+|  4 |            33 |          9 | Wochenendeinkauf |              1 |    400 |
+|  5 |            34 |          9 | Wochenendeinkauf |              1 |    500 |
+|  6 |            35 |          9 | Wochenendeinkauf |              1 |    600 |
+|  7 |            38 |          9 | Wochenendeinkauf |              1 |    700 |
+|  8 |            38 |          9 | für's Büro       |              2 |    800 |
++----+---------------+------------+------------------+----------------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from articles where id < 7;
++----+------------------------+-------+--------------+-----------------+
+| id | articledescription     | price | storageplace | articlecategory |
++----+------------------------+-------+--------------+-----------------+
+|  2 | Milka Schokolade 300gr |   188 | III          | 8               |
+|  3 | Amecke Orangensaft     |   169 | VVV          | 7               |
+|  4 | Coca-Cola versch 1,0l  |   110 | VVV          | 7               |
+|  5 | Krustenbrot            |   113 | UUU          | 5               |
+|  6 | Bagel Vierkorn         |    99 | UUU          | 5               |
++----+------------------------+-------+--------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+vagrant@homestead:~/shoppinglist-app$ bin/console debug:router --show-controllers
+ ----------------------------------------- -------- -------- ------ ---------------------------------- -----------------------------------------------------------------
+  Name                                      Method   Scheme   Host   Path                               Controller
+ ----------------------------------------- -------- -------- ------ ---------------------------------- -----------------------------------------------------------------
+  _preview_error                            ANY      ANY      ANY    /_error/{code}.{_format}           error_controller::preview()
+  app_articles_index                        GET      ANY      ANY    /articles/                         App\Controller\ArticlesController::index()
+  app_articles_articledetails               GET      ANY      ANY    /articles/articledetails/{artid}   App\Controller\ArticlesController::articleDetails()
+  app_shoppinglists_index                   GET      ANY      ANY    /shopping/lists/{shoppingListId}   App\Controller\ShoppingListsController::index()
+  app_shoppinglists_getgeneratedarticleid   GET      ANY      ANY    /articles/article_id/{articleId}   App\Controller\ShoppingListsController::getGeneratedArticleId()
+  app_userdata_index                        GET      ANY      ANY    /user/data                         App\Controller\UserDataController::index()
+  app_userdata_create                       POST     ANY      ANY    /user/data                         App\Controller\UserDataController::create()
+ ----------------------------------------- -------- -------- ------ ---------------------------------- -----------------------------------------------------------------

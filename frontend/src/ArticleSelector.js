@@ -1,37 +1,54 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/macro';
 
 
 export default function ArticleSelector ({description, amount}) {
 
+    // {amount} is a hardcoded random amount, since the backend doesn't work properly!
 
+    const [amountState, setAmountState] = useState(amount); 
+
+    const minusButton = () => {
+        amountState !== 0 && setAmountState(amountState - 1);
+        console.log({amountState, description});
+    }
+
+    const plusButton = () => {
+        amountState !== 9 && setAmountState(amountState + 1);
+        console.log({amountState, description});
+    }
+    
+    const isZero = amountState === 0;
+
+    const isNine = amountState === 9;
 
     return (
-        <div>            
+        <div>
             <ArticleSelectorFlex>
                 <ArticleSelectorDescription>
                     {description}
                 </ArticleSelectorDescription>
-                <button onClick={() => {alert(minusButtonAlert)}}>-</button>
-                <ArticleSelectorAmount>1{amount}</ArticleSelectorAmount>
-                <button onClick={() => {alert(plusButtonAlert)}}>+</button>
+                <Button disabled={isZero} onClick={minusButton}>-</Button>
+                <ArticleSelectorAmount>{amountState}</ArticleSelectorAmount>
+                <Button disabled={isNine} onClick={plusButton}>+</Button>
             </ArticleSelectorFlex>
         </div>
     )
 }
 
 
-
-
 const ArticleSelectorFlex = styled.div`
     display: flex;
     color: red;
     justify-content: space-between;
-    height: 10vw;
+    height: 50px;
     width: 70hw;
     color: #111;
-    margin-bottom: 3px;
-    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border-radius: 7px;
     background-image: linear-gradient(ivory, papayawhip);
     padding-left: 5px;
 `
@@ -41,19 +58,21 @@ const ArticleSelectorDescription = styled.span`
     flex-flow: column wrap;
     justify-content: center;
     align-items: bottom;
-    background-color: hotpink;
     width: 70%;
+    font-size: 1.05rem;
 `
 const ArticleSelectorAmount = styled.span`
     display: flex;
     flex-direction: column;
-    width: 2rem;
+    width: 3rem;
     justify-content: center;
     align-items: center;
 
 `
-const minusButtonAlert = `This button lowers a variable value which will be sent to the database when the close button gets pressed. The value will be initiated at the time the overlay comes up, and get the value of the according useState.`
 
-const plusButtonAlert = `This button raises a variable value which will be sent to the database when the close button gets pressed. The value will be initiated at the time the overlay comes up, and get the value of the according useState.`
+const Button = styled.button`
+    font-size: 1.6rem;
+    border-radius: 7px;
+`
 
-//// I was trying to get the shoppingLists amounts into the ArticleSelector, but the respective array is empty. Dunno y.
+//// Fetching the shoppingLists amounts into the ArticleSelector does not work bc the database structure was built wrong. 

@@ -54,7 +54,7 @@ class Articles
         return $this->id;
     }
 
-    public function getArticledescription(): ?string
+    public function getArticleDescription(): ?string
     {
         return $this->articledescription;
     }
@@ -105,7 +105,7 @@ class Articles
     /**
      * @return Collection|ShoppingLists[]
      */
-    public function getArticleI(): Collection
+    public function getArticleId(): Collection
     {
         return $this->articleid;
     }

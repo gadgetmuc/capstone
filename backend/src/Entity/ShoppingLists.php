@@ -33,7 +33,7 @@ class ShoppingLists
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity=articles::class, inversedBy="articleid")
+     * @ORM\ManyToOne(targetEntity=Articles::class, inversedBy="articleid")
      * @ORM\JoinColumn(nullable=false)
      */
     private $article_id;

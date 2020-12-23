@@ -23,7 +23,7 @@ class UserDataController extends AbstractController
         MyUserDataSerializer $serializer
     ): JsonResponse
     {
-       
+        
         $user = $repository->findAll();
 
         return new JsonResponse(

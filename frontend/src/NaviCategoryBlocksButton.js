@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export default function NaviCategoryBlocksButton ({children}) {
+export default function NaviCategoryBlocksButton ({children, changeAppMode, appMode}) {
+
+    
+
     return (
-        <NaviCategoryBlocksDiv>{children}</NaviCategoryBlocksDiv>
+        <NaviCategoryBlocksDiv appMode={appMode} onClick={() => changeAppMode(1)} className={appMode === 1 ? 'app_mode_1' : ''}>
+            {children}
+        </NaviCategoryBlocksDiv>
     );
 }
 
@@ -13,10 +18,13 @@ const NaviCategoryBlocksDiv = styled.div`
     justify-content: center;
     text-align: space-evenly;
     width: 25vw;
-    height: 18vw;
+    height: 68px;
     font-family: Monaco, sans-serif;
     background-color: #e80;
     border-radius: 5px;
     box-shadow: 3px 3px 3px papayawhip;
+    &.app_mode_1 {
+        background-color: orange;
+    }
 `
 

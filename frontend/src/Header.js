@@ -8,17 +8,20 @@ export default function Header({children}) {
 }
 
 const HeaderStyled = styled.div`
-    background-color: red;
+    background-image: linear-gradient(135deg, #291080, #030981);
     position: fixed;
     top: 0px;
     width: 100%;
-    height: 5%;
-
-    font-size: 7vw;
+    height: 50px;
+    z-index: 99;
+    font-size: 8.5vw;
     text-align: center;
     color: #eee;
     font-family: Monaco, sans-serif;
     font-weight: 700;
     padding-top: 20px;
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
+    &::after {
+        content: "Einkaufslisten-App";
+    }
 `

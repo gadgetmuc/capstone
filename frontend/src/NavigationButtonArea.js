@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import NaviShoppingcartButton from './NaviShoppingcartButton';
+import NaviShoppingcartButton from './NaviShoppingCartButton';
 import NaviCategoryBlocksButton from './NaviCategoryBlocksButton';
 import NaviProfileButton from './NaviProfileButton';
 
 
-
-export default function NavigationButtonArea () {
+export default function NavigationButtonArea ({changeAppMode, appMode}) {
+    
     return (
         <NavBar>
-            <NaviShoppingcartButton>shopping cart</NaviShoppingcartButton>
-            <NaviCategoryBlocksButton>categories</NaviCategoryBlocksButton>
-            <NaviProfileButton>profile</NaviProfileButton>
+            <NaviShoppingcartButton changeAppMode={changeAppMode} appMode={appMode}>shopping cart</NaviShoppingcartButton>
+            <NaviCategoryBlocksButton changeAppMode={changeAppMode} appMode={appMode}>categories</NaviCategoryBlocksButton>
+            <NaviProfileButton changeAppMode={changeAppMode} appMode={appMode}>profile</NaviProfileButton>
         </NavBar>
     )
 }
@@ -20,13 +20,15 @@ export default function NavigationButtonArea () {
 
 const NavBar = styled.div`
     display: flex;
-    height: 20vw;
-    margin-bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    righT: 0;
+    align-items: center;
+    height: 90px;
     font-family: Monaco, sans-serif;
     margin-top: 30px;
-    position: fix;
-    background: linear-gradient(to bottom, red, blue);
+    background-image: linear-gradient(135deg, #291080, #030981);
     justify-content: space-around;
-    bottom: 0;
-    z-index: 1;
+    z-index: 11;
 `

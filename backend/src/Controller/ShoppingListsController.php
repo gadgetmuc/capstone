@@ -15,46 +15,28 @@ use App\Entity\Articles;
 use App\Controller\ShoppingListsController;
 use App\Controller\ArticlesController;
 use App\Controller\UserDataController;
-use App\Serializer\MyShoppingListsSerializer;
-use App\Serializer\MyArticlesSerializer;
+use App\Serializer\ShoppingListsSerializer;
 
 class ShoppingListsController extends AbstractController
 {
     /**
-     * @Route("/shopping/lists/", methods={"GET"})
-     */
-    public function index(
-        ShoppingListsRepository $repository,
-        Request $request,
-        MyShoppingListsSerializer $serializer
-    ): JsonResponse {
-        
-        $shoppinglists = $repository->findBy(['article_id' => 1]);
-        
-        return new JsonResponse(
-            $serializer->serialize($shoppinglists, "json"),
-            JsonResponse::HTTP_OK,
-            [],
-            true
-        );
-    }
-
-    /**
-     * @Route("/articles/articleid", methods={"GET"})
+     * @Route("/shopping/lists/getAmountsFromShoppingLists/{shoppinglistid}/{articlecategory}",
+     * methods={"GET"})
      */
 
-    public function getArticleid(
+    public function getGeneratedArticleId(
+        int $articlecategory,
+        int $shoppinglistid,
         Request $request,
-        MyArticlesSerializer $serializer,
-        ShoppingListsRepository $articlesRepository
+        ShoppingListsSerializer $shoppingListsSerializer,
+        ShoppingListsRepository $shoppingListsRepository
     ): JsonResponse {
 
-        $fromArticleslist = $articlesRepository->findBy(array(
-            'article_id' => 2
-        ));
-
+        $shoppingLists = $shoppingListsRepository->findAll();
+        
+    
         return new JsonResponse(
-            $serializer->serialize($fromArticleslist, "json"),
+            $shoppingListsSerializer->serialize($shoppingLists[0]),
             JsonResponse::HTTP_OK,
             [],
             true
@@ -63,24 +45,6 @@ class ShoppingListsController extends AbstractController
 
 
 
-    //try and error
-    // public function show(int $id): JsorResponse {
-    //     $shoppinglistItems = $this->getDoctrine()
-    //         ->getRepository(Shoppinglist::class)
-    //         ->findOneByIdJoinedToArticles($id);
-
-    //     $articlesInThisList = $shoppinglistItems->getArticles();
-
-    //     return new JsonResponse(
-    //         $serializer->serialize($shoppinglistItems, "json"),
-    //         JsonResponse::HTTP_OK,
-    //         [],
-    //         true
-    //     );        
-
-    // }
-    //
 }
 
 
-// TODO write POST method!
