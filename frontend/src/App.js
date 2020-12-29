@@ -31,6 +31,11 @@ function App() {
     console.log(appMode);
   }
 
+  // TBD!!
+  //
+  // useEffect(() => {
+  //   fetch('http://shoppinglist-app.local/')
+  // })
 
   useEffect(() => {
     fetch('http://shoppinglist-app.local/articles')

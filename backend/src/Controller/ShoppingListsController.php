@@ -43,6 +43,16 @@ class ShoppingListsController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/shopping/lists/getAmountsFromShoppingLists/{userId}",
+     * methods={"GET"})
+     */
+    
+    // public function getShoppingListsFromUserId(
+    //     int $userId,
+
+    // )
+
 
 
 }

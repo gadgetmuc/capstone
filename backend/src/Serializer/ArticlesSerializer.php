@@ -5,14 +5,12 @@ namespace App\Serializer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Articles;
-use App\Entity\ShoppingLists;
 use App\Controller\ArticlesController;
-use App\Controller\ShoppingListsController;
 
 
-class MyArticleDetailsSerializer {
+class ArticlesSerializer {
 
-    private function articleDetailsAsArray($article): object {
+    private function pushArticlesIntoArray($item): object {
         
        $this->articleAsArray[] = [
             'id' => $item->getGeneratedArticleId(),
@@ -27,10 +25,10 @@ class MyArticleDetailsSerializer {
     public function serialize($articles) {
         if (is_array($articles)) {
             foreach($articles as $article) {
-                $this->articleAsArray($article);
+                $this->pushArticlesIntoArray($article);
             }
         } else {
-            $this->articleAsArray($articles);
+            $this->pushArticlesIntoArray($articles);
         }
         return \json_encode($this->articleAsArray);
     }

@@ -21,4 +21,13 @@ class ShoppingListsSerializer {
             "price" => $articles->getPrice()
         ];
     }
+
+    // TBD!!
+    //
+    // public function serializeShoppingList(ShoppingList $shoppingList): array {
+    //     return [
+    //         "" //
+    //     ]
+    //     )
+    // }
 }

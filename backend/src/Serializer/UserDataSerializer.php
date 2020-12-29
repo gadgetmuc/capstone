@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collecton;
 use App\Entity\UserData;
 
 
-class MyUserDataSerializer {
+class UserDataSerializer {
 
     private function setArray($pieceOfUserData): object {
 

@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserDataRepository;
 use App\Entity\UserData;
-use App\Serializer\MyUserDataSerializer;
+use App\Serializer\UserDataSerializer;
 use App\Controller\UserDataController;
 
 
@@ -20,10 +20,9 @@ class UserDataController extends AbstractController
     public function index(
         UserDataRepository $repository,
         Request $request, 
-        MyUserDataSerializer $serializer
+        UserDataSerializer $serializer
     ): JsonResponse
     {
-        
         $user = $repository->findAll();
 
         return new JsonResponse(
@@ -31,9 +30,9 @@ class UserDataController extends AbstractController
             JsonResponse::HTTP_OK,
             [],
             true
-
         );
     }
+
 
     /**
      * @Route("/user/data", methods={"POST"})

@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticlesRepository;
 use App\Repository\ShoppingListsRepository;
 use App\Entity\Articles;
-use App\Serializer\MyArticlesSerializer;
+use App\Serializer\ArticlesSerializer;
 use App\Controller\ArticlesController;
 
 class ArticlesController extends AbstractController
@@ -21,7 +21,7 @@ class ArticlesController extends AbstractController
     public function index(
         ArticlesRepository $repository,
         Request $request,
-        MyArticlesSerializer $serializer
+        ArticlesSerializer $serializer
     ): JsonResponse
     {
         $articles = $repository->findAll();
@@ -45,26 +45,15 @@ class ArticlesController extends AbstractController
         ArticlesRepository $articleRepository,
         ShoppingListsRepository $shoppingListsRepository,
         Request $request,
-        MyArticlesSerializer $serializer
+        ArticlesSerializer $serializer
     ): JsonResponse
     {
-        
         $shoppingListItems = $shoppingListsRepository->findBy(['shoppinglistid' => $shoppingListId, '']);
         $articlesInThisCategory = $articleRepository->findBy(['articlecategory' => $categoryId]);
-        // $articleDescriptionFromSL = $shoppingListsRepository->findAll();
-
-        // var_dump($shoppingListItems->article_id::getArticledescription());die;
-        // var_dump("Feelin' fine.", $articlesInThisCategory);die;
 
         $itemsArray = array([999, 'testarticle', 1234, 42, 100000]);
+ 
 
-        // This array must contain:
-        //      - articledescription
-        //      - price
-        //      - amount
-        //      - articlecategory
-        //      - article_id
-        
         function amountsOfArticles($shoppingListItems, $articlesInThisCategory, $auxItemsArray, $shoppingListsRepository) {
 
             // var_dump();
@@ -75,8 +64,6 @@ class ArticlesController extends AbstractController
 
                 foreach ($detailsInShoppingListForThisArticle as $heinz) {
                     $ketchup = $heinz->getGeneratedArticleId();
-                    // var_dump($ketchup->getArticleId());
-                    // var_dump($heinz);die;
                 }
 
                 array_push(
@@ -96,9 +83,9 @@ class ArticlesController extends AbstractController
             }
         }
         
+
         amountsOfArticles($shoppingListItems, $articlesInThisCategory, $itemsArray, $shoppingListsRepository);
     
-
         return new JsonResponse(
             $itemsArray,
             JsonResponse::HTTP_OK,

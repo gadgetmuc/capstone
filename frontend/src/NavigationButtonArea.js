@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import NaviShoppingcartButton from './NaviShoppingCartButton';
+import NaviShoppingCartButton from './NaviShoppingCartButton';
 import NaviCategoryBlocksButton from './NaviCategoryBlocksButton';
 import NaviProfileButton from './NaviProfileButton';
 
@@ -10,7 +10,7 @@ export default function NavigationButtonArea ({changeAppMode, appMode}) {
     
     return (
         <NavBar>
-            <NaviShoppingcartButton changeAppMode={changeAppMode} appMode={appMode}>shopping cart</NaviShoppingcartButton>
+            <NaviShoppingCartButton changeAppMode={changeAppMode} appMode={appMode}>shopping cart</NaviShoppingCartButton>
             <NaviCategoryBlocksButton changeAppMode={changeAppMode} appMode={appMode}>categories</NaviCategoryBlocksButton>
             <NaviProfileButton changeAppMode={changeAppMode} appMode={appMode}>profile</NaviProfileButton>
         </NavBar>
