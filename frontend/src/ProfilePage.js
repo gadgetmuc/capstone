@@ -9,11 +9,15 @@ export default function ProfilePage() {
     return(
         <ProfileForm>
             <h1>Please log in</h1>
+
             <label htmlFor="username" />
             <input name="username" required type="text" placeholder="please enter your name" />
+            
             <label htmlFor="password" />
             <input name="password" required type="password" placeholder="please enter your password" />
+            
             <SubmitButton onClick={() => setLoggedIn(1)}>log in</SubmitButton>
+            
             <LoggedInMessage className={loggedIn === 1 ? 'logged_in' : ''}>Hallo Gadget!</LoggedInMessage>
         </ProfileForm>
     );

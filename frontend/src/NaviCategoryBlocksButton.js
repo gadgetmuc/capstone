@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export default function NaviCategoryBlocksButton ({children, changeAppMode, appMode}) {
-
-    
+export default function NaviCategoryBlocksButton ({
+    children,
+    changeAppMode,
+    toggleShoppingListNameLabel,
+    appMode
+}) {
 
     return (
-        <NaviCategoryBlocksDiv appMode={appMode} onClick={() => changeAppMode(1)} className={appMode === 1 ? 'app_mode_1' : ''}>
+        <NaviCategoryBlocksDiv
+            appMode={appMode}
+            onClick={() => {
+                changeAppMode(1);
+                toggleShoppingListNameLabel(0);
+            }}
+            className={appMode === 1 ? 'app_mode_1' : ''}>
             {children}
         </NaviCategoryBlocksDiv>
     );

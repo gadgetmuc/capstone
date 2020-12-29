@@ -12,6 +12,8 @@ import CategoryButtonsPage from './CategoryButtonsPage';
 import ProfilePage from './ProfilePage';
 import NavigationButtonArea from './NavigationButtonArea';
 
+import ShoppingListNameLabel from './ShoppingListNameLabel';
+
 import CategoryVegetables from './CategoryVegetables';
 import CategoryColdCuts from './CategoryColdCuts';
 import CategoryBodyCare from './CategoryBodyCare';
@@ -24,11 +26,17 @@ function App() {
 
   const [appMode, setAppMode] = useState(0); // this is hardcoded for the category buttons mode
 
-  const [hideShoppingListName, setHideShoppingListName] = useState(true);
+  const [hideShoppingListNameLabel, setHideShoppingListNameLabel] = useState(0);
+
+  const [shoppingListName, setShoppingListName] = useState("Wochenendeinkauf");
 
   function changeAppMode(mode) {
     setAppMode(mode);
-    console.log(appMode);
+  }
+
+  function toggleShoppingListNameLabel(toggle) {
+    setHideShoppingListNameLabel(toggle);
+    console.log(toggle);
   }
 
 
@@ -93,11 +101,10 @@ function App() {
 
       <ShoppingCartArea className={appMode === 0 ? 'app_mode_0' : ''}>
         <ShoppingListNameLabel
-        className={hideShoppingListName ? '' : 'click_away_shopping_list_name'}
-        onClick={() => setHideShoppingListName(!hideShoppingListName)}>
-          "Wochenendeinkauf"
-          <HideShoppingListNameDiv />
-        </ShoppingListNameLabel>
+          toggleShoppingListNameLabel={toggleShoppingListNameLabel}
+          shoppingListName={shoppingListName}
+          hideShoppingListNameLabel={hideShoppingListNameLabel}
+        />
         <ShoppingCart appMode={appMode} />
       </ShoppingCartArea> 
 
@@ -105,7 +112,10 @@ function App() {
         <ProfilePage />
       </ProfilePageWrapper>
 
-      <NavigationButtonArea changeAppMode={changeAppMode} />
+      <NavigationButtonArea
+        changeAppMode={changeAppMode}
+        toggleShoppingListNameLabel={toggleShoppingListNameLabel}
+      />
 
     </Body>
   );
@@ -214,42 +224,3 @@ const ProfilePageWrapper = styled.div`
   }
 `
 
-const ShoppingListNameLabel = styled.div`
-  position: fixed;
-  bottom: 95px;
-  visibility: visible;
-  display: flex;
-  direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #111;
-  font-family: Monaco, sans-serif;
-  font-size: 1.43rem;
-  font-weight: bold;
-  padding: 5px 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-  background-color: #f1c232;
-  border-radius: 5px;
-  height: 2.3rem;
-  text-align: center;
-  box-shadow: 1px 1px 3px #333; 
-  &.click_away_shopping_list_name {
-    visibility: hidden;
-  }
-`
-
-const HideShoppingListNameDiv = styled.div`
-  display: flex;
-  direction: column;
-  color: red;
-  font-size: Monaco, sans-serif;
-  font-weight: bold;
-  font-size: 2rem;
-  justify-content: center;
-  align-items: center; 
-  &:after {
-    content: "×";
-  }
-
-`

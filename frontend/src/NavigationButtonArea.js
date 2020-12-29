@@ -6,13 +6,32 @@ import NaviCategoryBlocksButton from './NaviCategoryBlocksButton';
 import NaviProfileButton from './NaviProfileButton';
 
 
-export default function NavigationButtonArea ({changeAppMode, appMode}) {
+export default function NavigationButtonArea ({
+    changeAppMode,
+    toggleShoppingListNameLabel,
+    appMode}) {
     
     return (
         <NavBar>
-            <NaviShoppingcartButton changeAppMode={changeAppMode} appMode={appMode}>shopping cart</NaviShoppingcartButton>
-            <NaviCategoryBlocksButton changeAppMode={changeAppMode} appMode={appMode}>categories</NaviCategoryBlocksButton>
-            <NaviProfileButton changeAppMode={changeAppMode} appMode={appMode}>profile</NaviProfileButton>
+            <NaviShoppingcartButton
+                toggleShoppingListNameLabel={toggleShoppingListNameLabel}
+                changeAppMode={changeAppMode}
+                appMode={appMode}>
+                    shopping cart
+            </NaviShoppingcartButton>
+            
+            <NaviCategoryBlocksButton
+                toggleShoppingListNameLabel={toggleShoppingListNameLabel}
+                changeAppMode={changeAppMode}
+                appMode={appMode}>
+                    categories
+            </NaviCategoryBlocksButton>
+            
+            <NaviProfileButton
+                changeAppMode={changeAppMode}   
+                appMode={appMode}>
+                    profile
+            </NaviProfileButton>
         </NavBar>
     )
 }
