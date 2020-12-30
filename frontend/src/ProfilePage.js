@@ -36,8 +36,8 @@ const Input = styled.input`
 `
 
 const SubmitButton = styled.button`
-    border-radius: 5px;
     margin: 5px;
+    border-radius: 5px;
     width: 100px;
     height: 40px;
     background-color: ivory;

@@ -21,6 +21,7 @@ const NaviCategoryBlocksDiv = styled.div`
     border-radius: 5px;
     background-color: #e80;
     justify-content: center;
+    align-items: center;
     text-align: space-evenly;
     font-family: Monaco, sans-serif;
     &.app_mode_1 {
