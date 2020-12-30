@@ -13,14 +13,14 @@ export default function NaviShoppingCartButton ({children, changeAppMode, appMod
 const NaviShoppingCartDiv = styled.div`
     display: flex;
     flex-flow: column wrap;
+    height: 68px;
+    width: 25vw;
+    box-shadow: 3px 3px 3px papayawhip;
+    border-radius: 5px;
+    background-color: #e80;
     justify-content: center;
     text-align: center;
     font-family: Monaco, sans-serif;
-    width: 25vw;
-    height: 68px;
-    background-color: #e80;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px papayawhip;
     &.app_mode_0 {
         background-color: red;
     }

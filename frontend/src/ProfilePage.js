@@ -10,9 +10,9 @@ export default function ProfilePage() {
         <ProfileForm>
             <h1>Please log in</h1>
             <label htmlFor="username" />
-            <input name="username" required type="text" placeholder="please enter your name" />
+            <Input name="username" required type="text" placeholder="please enter your name" />
             <label htmlFor="password" />
-            <input name="password" required type="password" placeholder="please enter your password" />
+            <Input name="password" required type="password" placeholder="please enter your password" />
             <SubmitButton onClick={() => setLoggedIn(1)}>log in</SubmitButton>
             <LoggedInMessage className={loggedIn === 1 ? 'logged_in' : ''}>Hallo Gadget!</LoggedInMessage>
         </ProfileForm>
@@ -27,16 +27,21 @@ const ProfileForm = styled.div`
 `
 
 const Input = styled.input`
+    margin: 5px;
+    background-color: ivory;
+    border-radius: 5px;
     background-color: ivory;
     color: #111;
-    border-radius: 5px;
+    font-size: 1.2rem;
 `
 
 const SubmitButton = styled.button`
-    color: #111;
+    border-radius: 5px;
+    margin: 5px;
     width: 100px;
     height: 40px;
-    border-radius: 5px;
+    background-color: ivory;
+    color: #111;
 `
 
 const LoggedInMessage = styled.h2`

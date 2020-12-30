@@ -56,10 +56,9 @@ const CatButton = styled.button`
   width: 85px;
   height: 85px;
   border-radius: 5px;
-  font-size: 1.1rem;
-  /* background-image: linear-gradient(135deg, papayawhip, orange); */
   background-image: url(${props => props.image});
   background-size: cover;
+  font-size: 1.1rem;
   color: #000;
   &:active {
   background-image: linear-gradient(315deg, rgba(ff, ef, d5, .3), rgba(ff, a5, 0, .3));
@@ -70,14 +69,13 @@ const CatButton = styled.button`
 const CategoryButtonArea = styled.div`
   display: grid;
   visibility: hidden;
-  color: white;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  gap: 30px 20px;
   margin-top: 80px;
   margin-bottom: 80px;
-  background-color: rgba(0,0,0,0);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 20px;
+  justify-items: center;
+  color: white;
   &.app_mode_1 {
     visibility: visible;
   }
@@ -85,6 +83,6 @@ const CategoryButtonArea = styled.div`
 `
 
 const Spacer = styled.div`
-  height: 50px;
   opacity: 0;
+  height: 50px;
 `

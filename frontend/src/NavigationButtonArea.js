@@ -19,16 +19,16 @@ export default function NavigationButtonArea ({changeAppMode, appMode}) {
 
 
 const NavBar = styled.div`
-    display: flex;
+    z-index: 3;
     position: fixed;
+    display: flex;
     bottom: 0;
     left: 0;
-    righT: 0;
-    align-items: center;
-    height: 90px;
-    font-family: Monaco, sans-serif;
+    right: 0;
     margin-top: 30px;
-    background-image: linear-gradient(135deg, #291080, #030981);
+    height: 90px;
     justify-content: space-around;
-    z-index: 11;
+    align-items: center;
+    background-image: linear-gradient(135deg, #291080, #030981);
+    font-family: Monaco, sans-serif;
 `

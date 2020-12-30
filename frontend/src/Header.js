@@ -8,19 +8,19 @@ export default function Header({children}) {
 }
 
 const HeaderStyled = styled.div`
-    background-image: linear-gradient(135deg, #291080, #030981);
+    z-index: 2;
     position: fixed;
     top: 0px;
     width: 100%;
     height: 50px;
-    z-index: 99;
-    font-size: 8.5vw;
-    text-align: center;
-    color: #eee;
-    font-family: Monaco, sans-serif;
-    font-weight: 700;
+    background-image: linear-gradient(135deg, #291080, #030981);
     padding-top: 20px;
     padding-bottom: 20px;
+    text-align: center;
+    font-family: Monaco, sans-serif;
+    font-size: 8.5vw;
+    font-weight: 700;
+    color: #eee;
     &::after {
         content: "Einkaufslisten-App";
     }

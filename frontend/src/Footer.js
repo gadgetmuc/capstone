@@ -9,14 +9,12 @@ export default function NaviFooter() {
 }
 
 const Footer = styled.div`
+    z-index: 2;
     display: fixed;
-    background-color: deeppink;
-    // background-image: linear-gradient(180deg, #030981, #291080);
-    width: 100hw;
-    height: 80px;
-    z-index: 100;
     bottom: 0px;
     left: 0px;
     right: 0px;
+    height: 80px;
+    width: 100hw;
 
 `

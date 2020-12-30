@@ -32,6 +32,7 @@ function App() {
   }
 
   // TBD!!
+  // This fetches the name and id of the shoppinglists of the user (who is mocked atm)
   //
   // useEffect(() => {
   //   fetch('http://shoppinglist-app.local/')
@@ -121,18 +122,18 @@ export default App;
 //// ◁ ×
 
 const Overlay = styled.div`
-  border-radius: 13px;
+  z-index: 1;
   visibility: visible;
+  opacity: .95;
   position: absolute;
   top: 110px;
   height: 90%;
-  color: ivory;
   left: 5%;
   right: 5%;
-  justify-content: center;
-  opacity: .95;
-  z-index: 10;
+  border-radius: 13px;
   background-color: #111;
+  justify-content: center;
+  color: ivory;
   transition: visibility 0s ease-in-out .5s;
   &.hide_overlay {
     visibility: hidden;
@@ -141,40 +142,38 @@ const Overlay = styled.div`
 `
 
 const OverlayHeader = styled.div`
-  padding-bottom: 5px;
   display: flex;
+  padding-bottom: 5px;
+  background-image: linear-gradient(180deg, green, #111);
+  height: 3.4rem;
+  border-radius: 13px 13px 0 0;
   justify-content: space-between;
   align-items: center;
-  height: 3.4rem;
-  display: flex;
   color: #111;
-  background-image: linear-gradient(180deg, green, #111);
-  border-radius: 13px 13px 0 0;
-
 `
+
  const CategoryImage = styled.img`
   height: 3.4rem;
   width: 3.4rem;
-  border-right: 1px solid #333;
   border-radius: 13px 0 0 0;
-  // background-color: limegreen;
- `
+  border-right: 1px solid #333;
+`
 
  const CategoryHeadline = styled.div`
-  color: #eee;
-  justify-content: center;
-  align-items: center;
   display: flex;
   flex-flow: column wrap;
-  font-size: 1.5rem;
-  font-family: Monaco;
   height: 3.4rem;
- `
+  justify-content: center;
+  align-items: center;
+  font-family: Monaco;
+  font-size: 1.5rem;
+  color: #eee;
+`
 
  const CloseThisOverlayButton = styled.div`
   display: flex;
-  border-left: 1px solid #333;
   flex-direction: column;
+  border-left: 1px solid #333;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(180deg, #e22, #111);
@@ -207,12 +206,12 @@ const ShoppingCartArea = styled.div`
 `
 
 const ProfilePageWrapper = styled.div`
-  width: 375px;
-  height: 667px;
-  background-image: linear-gradient(orange, papayawhip);
   visibility: hidden;
   position: absolute;
   top: 80px;
+  width: 375px;
+  height: 667px;
+  background-image: linear-gradient(orange, papayawhip);
   &.app_mode_2 {
     visibility: visible;
     background-color: red;
@@ -220,25 +219,25 @@ const ProfilePageWrapper = styled.div`
 `
 
 const ShoppingListNameLabel = styled.div`
+  visibility: visible;
   position: fixed;
   bottom: 95px;
-  visibility: visible;
   display: flex;
   direction: column;
+  box-shadow: 1px 1px 3px #333; 
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 5px;
+  height: 2.3rem;
+  background-color: #f1c232;
   justify-content: center;
   align-items: center;
+  padding: 5px 15px;
+  text-align: center;
   color: #111;
   font-family: Monaco, sans-serif;
   font-size: 1.43rem;
   font-weight: bold;
-  padding: 5px 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-  background-color: #f1c232;
-  border-radius: 5px;
-  height: 2.3rem;
-  text-align: center;
-  box-shadow: 1px 1px 3px #333; 
   &.click_away_shopping_list_name {
     visibility: hidden;
   }
@@ -247,14 +246,13 @@ const ShoppingListNameLabel = styled.div`
 const HideShoppingListNameDiv = styled.div`
   display: flex;
   direction: column;
+  justify-content: center;
+  align-items: center; 
   color: red;
   font-size: Monaco, sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  justify-content: center;
-  align-items: center; 
-  &:after {
+  &::after {
     content: "×";
   }
-
 `

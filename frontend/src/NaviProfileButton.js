@@ -13,14 +13,14 @@ export default function NaviProfileButton ({children, changeAppMode, appMode}) {
 const NaviProfileDiv = styled.div`
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
-    text-align: center;
+    box-shadow: 3px 3px 3px papayawhip;
+    border-radius: 5px;
     width: 25vw;
     height: 68px;
-    font-family: Monaco, sans-serif;
     background-color: #e80;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px papayawhip;
+    justify-content: center;
+    text-align: center;
+    font-family: Monaco, sans-serif;
     &.app_mode_2 {
         background-color: orange;
     }

@@ -39,26 +39,25 @@ export default function ArticleSelector ({description, amount}) {
 
 const ArticleSelectorFlex = styled.div`
     display: flex;
-    color: red;
-    justify-content: space-between;
-    height: 50px;
-    width: 70hw;
-    color: #111;
     margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 5px;
+    height: 50px;
+    width: 70hw;
     border-radius: 7px;
     background-image: linear-gradient(ivory, papayawhip);
+    justify-content: space-between;
     padding-left: 5px;
+    color: #111;
 `
 
 const ArticleSelectorDescription = styled.span`
     display: flex;
     flex-flow: column wrap;
+    width: 70%;
     justify-content: center;
     align-items: bottom;
-    width: 70%;
     font-size: 1.05rem;
 `
 const ArticleSelectorAmount = styled.span`
@@ -71,8 +70,8 @@ const ArticleSelectorAmount = styled.span`
 `
 
 const Button = styled.button`
-    font-size: 1.6rem;
     border-radius: 7px;
+    font-size: 1.6rem;
 `
 
 //// Fetching the shoppingLists amounts into the ArticleSelector does not work bc the database structure was built wrong. 

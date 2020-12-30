@@ -64,53 +64,53 @@ const ShoppingCartItemFlexArea = styled.div`
 `
 
 const ShoppingCartItemFlex = styled.div`
-    height: 50px;
+    display: flex;
     left: 10px;
     right: 10px;
-    display: flex;
     margin: 10px 5px;
-    background-image: linear-gradient(135deg, papayawhip, ivory);
+    height: 50px;
+    box-shadow: 2px 2px 3px #333;
     border-radius: 5px;
-    color: #111;
+    background-image: linear-gradient(135deg, papayawhip, ivory);
     align-items: center;
     padding-left: 5px;
-    box-shadow: 2px 2px 3px #333;
+    color: #111;
 `
 
 const Amount = styled.div`
-    width: 2rem;
     height: 2rem;
-    font-size: 1.5rem;
+    width: 2rem;
     background-image: linear-gradient(315deg, papayawhip, ivory);
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     padding-right: 5px;
+    text-align: center;
+    font-size: 1.5rem;
 `
 
 const Description = styled.span`
-    width: 70%;
     height: 2rem;
-    padding-left: 5px;
+    width: 70%;
     border-radius: 3px;
+    padding-left: 5px;
     font-size: 1.3rem;
 `
 
 const PutIntoBasketButton = styled.button`
-    margin-right: 5px;
     margin-left: 5px;
-    width: 2.2rem;
+    margin-right: 5px;
     height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, #111, green);
     font-size: 1.2rem;
     color: ivory;
-    background-image: linear-gradient(135deg, #111, green);
-    border-radius: 50%;
 `
 
 const PutOnHoldButton = styled.button`
     margin-right: 5px;
-    background-image: linear-gradient(135deg, #111, #e22);
     height: 2.2rem;
     width: 2.2rem;
     border-radius: 50%;
+    background-image: linear-gradient(135deg, #111, #e22);
 `   
