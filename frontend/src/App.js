@@ -31,13 +31,6 @@ function App() {
     console.log(appMode);
   }
 
-  // TBD!!
-  // This fetches the name and id of the shoppinglists of the user (who is mocked atm)
-  //
-  // useEffect(() => {
-  //   fetch('http://shoppinglist-app.local/')
-  // })
-
   useEffect(() => {
     fetch('http://shoppinglist-app.local/articles')
     .then(response => response.json())
@@ -46,6 +39,8 @@ function App() {
 
 
   const [user, setUser] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(0);
+
 
   useEffect(() => {
     fetch('http://shoppinglist-app.local/user/data')
@@ -53,6 +48,7 @@ function App() {
     .then((data) => setUser(data))
   }, []);
 
+  console.log(user);
   
   const [isOverlayVisible, setIsOverlayVisible] = useState(null);
 
@@ -107,11 +103,11 @@ function App() {
         <ShoppingCart appMode={appMode} />
       </ShoppingCartArea> 
 
-      <ProfilePageWrapper className={appMode === 2 ? 'app_mode_2' : ''}>
+      <ProfilePageWrapper user="{user}" loggedIn={loggedIn} className={appMode === 2 ? 'app_mode_2' : ''}>
         <ProfilePage />
       </ProfilePageWrapper>
 
-      <NavigationButtonArea changeAppMode={changeAppMode} />
+      <NavigationButtonArea changeAppMode={changeAppMode} loggedIn={loggedIn} />
 
     </Body>
   );

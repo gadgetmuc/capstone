@@ -33,6 +33,38 @@ class UserDataController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/user/data/{username}/{password}", methods={"GET"})
+     */
+    public function login(
+        string $username,
+        string $password,
+        UserDataRepository $repository,
+        Request $request,
+        UserDataSerializer $serializer
+    ): JsonResponse
+    {
+        $user = $repository->findOneBy(['username' => $username]);
+
+        if ($password == $user->getPassword()) {
+            var_dump('ok');die;
+            return new JsonResponse(
+                $serializer->serialize($user, 'json'),
+                JsonResponse::HTTP_OK,
+                [],
+                true
+            );
+        } else {
+            var_dump('meep');die;
+            return new JsonResponse(
+                $serializer->serialize('', 'json'),
+                JsonResponse::HTTP_UNAUTHORIZED
+            );
+        };
+
+    }
+
+
 
     /**
      * @Route("/user/data", methods={"POST"})

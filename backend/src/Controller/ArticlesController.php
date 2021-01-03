@@ -78,9 +78,9 @@ class ArticlesController extends AbstractController
                 );
             }
 
-            foreach ($auxItemsArray as $auxIA) {
-                var_dump($auxIA);
-            }
+            // foreach ($auxItemsArray as $auxIA) {
+            //     var_dump($auxIA);
+            // }
         }
         
 

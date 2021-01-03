@@ -11,7 +11,7 @@ POST {{baseUrl}}/user/data
 
 ###
 
-GET {{baseUrl}}/user/data
+GET {{baseUrl}}/user/data/Der Gadget/god
 
 ###
 
