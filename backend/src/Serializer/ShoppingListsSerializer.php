@@ -18,16 +18,9 @@ class ShoppingListsSerializer {
     private function serializeArticle(Articles $articles): array {
         return [
             "articledescription" => $articles->getArticledescription(),
-            "price" => $articles->getPrice()
+            "price" => $articles->getPrice(),
+            "storageplace" => $articles->getStorageplace()
         ];
     }
 
-    // TBD!!
-    //
-    // public function serializeShoppingList(ShoppingList $shoppingList): array {
-    //     return [
-    //         "" //
-    //     ]
-    //     )
-    // }
 }

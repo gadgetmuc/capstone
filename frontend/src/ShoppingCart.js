@@ -3,7 +3,12 @@ import styled from 'styled-components/macro';
 
 
 
-export default function ShoppingCart({appMode}) {
+export default function ShoppingCart({appMode, whichShoppingListIsChosen}) {
+
+    const mayo = [
+        ['u', 0, 'Seife', 2],
+        ['u', 1, 'Klopapier', 2]
+    ];
 
     const heinz = [
         ['a', 0, 'Bananen', 3],
@@ -11,18 +16,25 @@ export default function ShoppingCart({appMode}) {
         ['f', 2, 'Erdnüsse', 2],
         ['j', 3, 'Fladenbrot', 1],
         ['o', 4, 'Geranien', 1],
-        ['u', 5, 'Klopapier', 9],
+        ['u', 5, 'Klopapier', 2],
         ['a', 6, 'Limetten', 4],
         ['i', 7, 'Müsli', 1],
         ['f', 8, 'Schokolade', 3],
-        ['g', 9, 'Zimtsterne', 3]
+        ['g', 9, 'Zimtsterne', 3],
+        ['a', 10, 'Paprika', 2]
     ];
     
     let ketchup = [];
-    heinz.map((item) => ketchup.push([item[0] + item[1], item[2], item[3]]));
+    
+    whichShoppingListIsChosen === 'Bürobedarf' ? mayo.map((item) => ketchup.push([item[0] + item[1], item[2], item[3]])) : heinz.map((item) => ketchup.push([item[0] + item[1], item[2], item[3]]));
     ketchup = ketchup.sort();
+    console.log(ketchup);
 
     const [heinzState, setHeinzState] = useState(ketchup); //confusing at first glance, sry!
+    console.log(ketchup);
+    console.log(heinzState);
+    console.log(heinz);
+    // WHY IS THAT??!
 
     return (
         <div>
@@ -46,6 +58,8 @@ export default function ShoppingCart({appMode}) {
                         }}>⏳</PutOnHoldButton>
                     </ShoppingCartItemFlex>
                 )}
+                <ShoppingCartIsEmpty className={whichShoppingListIsChosen !== 'nothing selected' && heinzState.length !== 0 ? 'hide_empty_sign' : ''} />
+
             </ShoppingCartItemFlexArea>
     
         </div>
@@ -53,6 +67,7 @@ export default function ShoppingCart({appMode}) {
 
     );
 }
+
 
 
 
@@ -75,6 +90,9 @@ const ShoppingCartItemFlex = styled.div`
     align-items: center;
     padding-left: 5px;
     color: #111;
+    &.hide_this_shoppingcart_item {
+        display: none;
+    }
 `
 
 const Amount = styled.div`
@@ -114,3 +132,21 @@ const PutOnHoldButton = styled.button`
     border-radius: 50%;
     background-image: linear-gradient(135deg, #111, #e22);
 `   
+
+const ShoppingCartIsEmpty = styled.div`
+    margin-top: 100px;
+    margin-left: 35px;
+    display: inline-block;
+    height: 2rem;
+    width: 300px;
+    background-image: linear-gradient(170deg, orange, goldenrod);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #111;
+    &::after {
+        content: 'This shoppinglist is empty.'
+    }
+    &.hide_empty_sign {
+        display: none;
+    }
+`

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export default function NaviShoppingCartButton ({children, changeAppMode, appMode}) {
+export default function NaviShoppingCartButton ({children, changeAppMode, appMode, loggedIn}) {
 
 
 
     return (
-        <NaviShoppingCartDiv onClick={() => changeAppMode(0)} className={appMode === 0 ? 'app_mode_0' : ''}>{children}</NaviShoppingCartDiv>
+        <NaviShoppingCartDiv onClick={() => loggedIn === true ? changeAppMode(0) : alert("Please log in first.")} className={appMode === 0 ? 'app_mode_0' : ''}>{children}</NaviShoppingCartDiv>
     );
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export default function NaviCategoryBlocksButton ({children, changeAppMode, appMode}) {
+export default function NaviCategoryBlocksButton ({children, changeAppMode, appMode, loggedIn}) {
 
     
 
     return (
-        <NaviCategoryBlocksDiv appMode={appMode} onClick={() => changeAppMode(1)} className={appMode === 1 ? 'app_mode_1' : ''}>
+        <NaviCategoryBlocksDiv appMode={appMode} onClick={() => loggedIn === true ? changeAppMode(1) : alert("Please log in first.")} className={appMode === 1 ? 'app_mode_1' : ''}>
             {children}
         </NaviCategoryBlocksDiv>
     );

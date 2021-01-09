@@ -19,7 +19,7 @@ GET {{baseUrl}}/articles
 
 ###
 
-GET {{baseUrl}}/shopping/lists/getAmountsFromShoppingLists/1/0
+GET {{baseUrl}}/shopping/lists/getAmountsFromShoppingLists/4/0
 ###
 
 GET {{baseUrl}}/articles/itemsonshoppinglist/1/0

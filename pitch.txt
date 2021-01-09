@@ -1,0 +1,36 @@
+Schönen guten Abend
+Gadget aus München---_
+
+aus der Veranstaltungstechnik __-- ###
+Organisation 
+über Auf-/Abbau -->
+und die technische Umsetzung, --
+bis hin zu Betreuung, Touring--__ 
+
+Seit meiner Jugend großes Interesse an
+Programmieren,
+und Ausprobieren ###
+
+etwa am automatisieren von Aufgaben,----
+dem Schreiben von HTML-basierten Adventskalender für Familie
+oder dem Basteln :) von kleinen Gadgets --__
+
+An dieser Stelle sei erwähnt, ich bin Vater einer kleinen Tochter. :)
+
+schon vor boot camp umfasste mein tech stack neben
+HTML und Python 
+etwas Kotlin, SQL und Ruby
+
+
+Mein Abschlussprojekt ist eine Einkaufslisten -App. --__ ###
+
+Zum Erstellen einer Liste holt sie die Artikel aus einer Datenbank,
+und sortiert nach festgelegten Kategorien vor. ---_ ###
+
+Beim Einkaufen werden die ausgewählten Artikel schließlich umsortiert,
+und zwar entlang der Warenbereiche, in denen sie im Laden zu finden sind. 
+
+Ich suche ab sofort im Großraum München eine familienfreundliche
+Festanstellung als frontend, backend oder fullstack developer.
+
+Vielen Dank!

@@ -18,43 +18,59 @@ import CategoryBodyCare from './CategoryBodyCare';
 
 function App() {
 
-  const [shoppingListIdState, setShoppingListIdState] = useState(1); // selected shoppinglist, hardcoded for now
-
+  const [users, setUsers] = useState([]);
+  
+  const [loggedIn, setLoggedIn] = useState(false);
+  
+  const [shoppingListIdState, setShoppingListIdState] = useState(null);
+  
   const [articles, setArticles] = useState([]);
-
-  const [appMode, setAppMode] = useState(0); // this is hardcoded for the category buttons mode
-
+  
+  const [appMode, setAppMode] = useState(2); // this is hardcoded for the category buttons mode
+  
   const [hideShoppingListName, setHideShoppingListName] = useState(true);
+
+  const [isOverlayVisible, setIsOverlayVisible] = useState(null);
+
+  const makeAppear = (category) => setIsOverlayVisible(category);
+
+  const [whichShoppingListIsChosen, setWhichShoppingListIsChosen] = useState('nothing selected');
+
+
 
   function changeAppMode(mode) {
     setAppMode(mode);
-    console.log(appMode);
+    // console.log(appMode);
   }
+
+  function chooseShoppingList(shoppingListName) {
+    setWhichShoppingListIsChosen(shoppingListName)
+    // console.log(whichShoppingListIsChosen)
+  }
+  
+  // function changeLoggedInUser(thisUserTriesToLogIn) {
+  //   setLoggedInUser(thisUserTriesToLogIn)
+  // }
+  // console.log(loggedIn);
+
+  function changeLoggedInState(state) {
+    setLoggedIn(state);
+  }
+  
 
   useEffect(() => {
     fetch('http://shoppinglist-app.local/articles')
     .then(response => response.json())
     .then((data) => setArticles(data))
   }, []); 
-
-
-  const [user, setUser] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(0);
-
-
+  
   useEffect(() => {
     fetch('http://shoppinglist-app.local/user/data')
     .then(response => response.json())
-    .then((data) => setUser(data))
+    .then((data) => setUsers(data))
   }, []);
-
-  console.log(user);
+    
   
-  const [isOverlayVisible, setIsOverlayVisible] = useState(null);
-
-  const makeAppear = (category) => setIsOverlayVisible(category);
-  
-
   return ( 
     <Body>
       <Header />
@@ -96,15 +112,15 @@ function App() {
       <ShoppingCartArea className={appMode === 0 ? 'app_mode_0' : ''}>
         <ShoppingListNameLabel
         className={hideShoppingListName ? '' : 'click_away_shopping_list_name'}
-        onClick={() => setHideShoppingListName(!hideShoppingListName)}>
-          "Wochenendeinkauf"
+        onClick={() => whichShoppingListIsChosen === 'nothing selected' ? setAppMode(2) : setHideShoppingListName(!hideShoppingListName)}>
+          {whichShoppingListIsChosen}
           <HideShoppingListNameDiv />
         </ShoppingListNameLabel>
-        <ShoppingCart appMode={appMode} />
+        <ShoppingCart appMode={appMode} whichShoppingListIsChosen={whichShoppingListIsChosen} articles={articles} />
       </ShoppingCartArea> 
 
-      <ProfilePageWrapper user="{user}" loggedIn={loggedIn} className={appMode === 2 ? 'app_mode_2' : ''}>
-        <ProfilePage />
+      <ProfilePageWrapper  className={appMode === 2 ? 'app_mode_2' : ''}>
+        <ProfilePage users={users} loggedIn={loggedIn} whichShoppingListIsChosen={whichShoppingListIsChosen} chooseShoppingList={chooseShoppingList} changeLoggedInState={changeLoggedInState} appMode={appMode} />
       </ProfilePageWrapper>
 
       <NavigationButtonArea changeAppMode={changeAppMode} loggedIn={loggedIn} />
@@ -249,6 +265,6 @@ const HideShoppingListNameDiv = styled.div`
   font-weight: bold;
   font-size: 2rem;
   &::after {
-    content: "×";
+    content: "  ×";
   }
 `

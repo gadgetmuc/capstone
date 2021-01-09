@@ -36,7 +36,7 @@ class ShoppingListsController extends AbstractController
         
     
         return new JsonResponse(
-            $shoppingListsSerializer->serialize($shoppingLists[0]),
+            $shoppingListsSerializer->serialize($shoppingLists[$shoppinglistid]),
             JsonResponse::HTTP_OK,
             [],
             true

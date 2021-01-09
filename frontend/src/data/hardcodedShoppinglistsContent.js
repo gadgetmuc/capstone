@@ -74,6 +74,38 @@ export default function makeAnExportableFunctionOutOfThisHardcodedShoppingListIt
                 'listname' : 'Flight to Tokyo',
                 'shoppinglistId' : 3,
                 'amount' : 90
+            },
+            {
+                'id' : 10,
+                'article_id' : 4,
+                'user_id' : 12,
+                'listname' : 'Flight to Tokyo',
+                'shoppinglistId' : 3,
+                'amount' : 100
+            },
+            {
+                'id' : 11,
+                'article_id' : 5,
+                'user_id' : 12,
+                'listname' : 'Flight to Tokyo',
+                'shoppinglistId' : 3,
+                'amount' :110
+            },
+            {
+                'id' : 12,
+                'article_id' : 12,
+                'user_id' : 12,
+                'listname' : 'Flight to Tokyo',
+                'shoppinglistId' : 3,
+                'amount' : 120
+            },
+            {
+                'id' : 13,
+                'article_id' : 45,
+                'user_id' : 13,
+                'listname' : 'Door Bell Shop Fridge',
+                'shoppinglistId' : 3,
+                'amount' : 130
             }
         ]
     );
